@@ -64,10 +64,10 @@ Also confirm that:
 
 | Artifact | Authoritative source | Installed hash | Staged hash | Remote hash | Status |
 |---|---|---|---|---|---|
-| chat-session-evidence-extraction | local Skill directory | [hash] | [hash] | [hash] | [status] |
-| chat-session-skill-extraction | local Skill directory | [hash] | [hash] | [hash] | [status] |
-| reference-led-product-website-handoff | local Skill directory | [hash] | [hash] | [hash] | [status] |
-| evidence-driven-session-to-deliverable | local Skill directory | [hash] | [hash] | [hash] | [status] |
+| chat-session-evidence-extraction/SKILL.md | installed Skill directory | 22e2201b3433dc0c587d2e3d616b76e13ad10a28 | 22e2201b3433dc0c587d2e3d616b76e13ad10a28 | 22e2201b3433dc0c587d2e3d616b76e13ad10a28 | current |
+| chat-session-skill-extraction/SKILL.md | installed Skill directory | 0a84eb2873c0ac0a9390602c816021be65b2520f | 0a84eb2873c0ac0a9390602c816021be65b2520f | 0a84eb2873c0ac0a9390602c816021be65b2520f | current |
+| reference-led-product-website-handoff/SKILL.md | installed Skill directory | 5869198d9b927a1da710774a3c20d0d44dc628a7 | 5869198d9b927a1da710774a3c20d0d44dc628a7 | 5869198d9b927a1da710774a3c20d0d44dc628a7 | current |
+| evidence-driven-session-to-deliverable/SKILL.md | installed Skill directory | c5caaf809bcdfc8847cc37aef4568f5e5fcb9553 | c5caaf809bcdfc8847cc37aef4568f5e5fcb9553 | c5caaf809bcdfc8847cc37aef4568f5e5fcb9553 | current |
 
 Update this record after every publication. A pending or unverified row is not a pass.
 
@@ -96,6 +96,6 @@ Review the complete diff before every push. Do not rely on the validator alone f
 | JavaScript syntax | PASS |
 | Manual content review | PASS |
 | Git diff review | PASS |
-| Remote synchronization | Pending push |
+| Remote synchronization | PASS |
 
 Update this table with observed results before publishing. A pending row is not a pass.

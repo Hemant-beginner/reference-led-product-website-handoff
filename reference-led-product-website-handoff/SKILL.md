@@ -1,6 +1,6 @@
 ---
 name: reference-led-product-website-handoff
-description: Produce an evidence-backed marketing-site handoff from a visual reference without copying unsupported claims or brand assets. Use when a user wants a reference-inspired product website, IDE-ready documentation and asset package, release/download verification, original design direction, sanitized product media, or staged build and launch QA.
+description: Produce an evidence-backed marketing-site handoff from a visual reference without copying unsupported claims or brand assets. Use in Qoder, Claude Code, Codex, OpenCode, or other coding agents when a user wants a reference-inspired product website, IDE-ready documentation and asset package, release/download verification, original design direction, sanitized product media, or staged build and launch QA.
 ---
 
 # Reference-Led Product Website Handoff
@@ -17,6 +17,15 @@ Turn a visual reference into an original, product-specific website plan and hand
 - If the user explicitly authorizes end-to-end execution, continue through implementation and verification within that scope; do not stop after documentation unless the user asks for documentation only.
 - Preserve existing files and repositories. Create a new output directory or make reversible copies; never overwrite a same-name Skill, draft, release artifact, or user work without explicit approval.
 - Report observed, inferred, failed, and unverified items separately. A successful build is not proof of accessibility, legal readiness, or production readiness.
+
+## Upstream Chat Evidence (Optional)
+
+- When product facts originate in a chat session, use `chat-session-evidence-extraction` or an equivalent bounded evidence report before writing copy.
+- Treat the report as an index to evidence, not as product truth. Verify release, feature, license, and platform claims against current source files and authoritative artifacts.
+- Record the source snapshot, unread boundaries, contradictions, and unresolved owner decisions in the handoff.
+- Do not import raw transcripts, tool logs, personal data, or machine-specific paths into website documents.
+- Use `chat-session-skill-extraction` only when maintaining this Skill itself, not as a substitute for product verification.
+- Use `evidence-driven-session-to-deliverable` when the user wants the full chat-to-Skill-to-website pipeline orchestrated across stages.
 
 ## Workflow
 

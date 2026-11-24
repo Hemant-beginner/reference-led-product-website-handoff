@@ -1,6 +1,6 @@
 # Reference-Led Product Website Handoff
 
-A reusable Qoder Skill for turning a visual reference into an original, evidence-backed product website handoff. It verifies release and license facts, inventories real features and media, inspects references without copying them, and carries authorized work through build and launch verification.
+A portable Skill for Qoder, Claude Code, Codex, OpenCode, and other coding agents. It turns a visual reference into an original, evidence-backed product website handoff, verifies release and license facts, inventories real features and media, inspects references without copying them, and carries authorized work through build and launch verification.
 
 ## Package contents
 

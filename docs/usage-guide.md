@@ -1,120 +1,110 @@
-# Usage Guide
+# Suite Usage Guide
 
-## 1. Prepare the request
+## 1. Choose an entry point
 
-Provide the Skill with:
+| Need | Skill |
+|---|---|
+| Read a large or evolving session safely | `chat-session-evidence-extraction` |
+| Turn verified evidence into one or more Skills | `chat-session-skill-extraction` |
+| Produce a reference-inspired product website handoff | `reference-led-product-website-handoff` |
+| Sequence several stages or combine suggestions | `evidence-driven-session-to-deliverable` |
 
-- Product name and repository or evidence root.
-- Reference URL and the qualities to borrow.
-- Current release or artifact record, if known.
-- Target audience and desired visitor outcome.
-- Output directory and target IDE or stack.
-- Requested scope: research, documentation, implementation, deployment, or all four.
-- Approval boundaries and files that must remain unchanged.
+Use the orchestrator when the request crosses component boundaries. Use a component directly when only one capability is needed.
 
-If a fact is unavailable, say so. The Skill is designed to mark it unresolved rather than invent it.
+## 2. Prepare the inputs
 
-## 2. Example prompts
+Provide the relevant subset:
 
-### Documentation-only handoff
+- Session ID, export path, or verified notes.
+- Product repository or authoritative evidence root.
+- Reference URL and desired visual or interaction qualities.
+- Candidate Skill names and requested actions.
+- Output directory and target implementation stack.
+- Target harness and installation root.
+- Approval boundaries.
+- Language, privacy, and publication constraints.
+
+Do not guess missing session paths, install roots, production domains, or repository destinations.
+
+## 3. Example prompts
+
+### Evidence-only
 
 ```text
-Use reference-led-product-website-handoff to inspect the reference URL and my product repository. Produce an evidence-backed website brief, claim ledger, reference analysis, design system, asset manifest, capture plan, build specification, QA plan, SEO checklist, and legal review. Do not implement or deploy.
+Use chat-session-evidence-extraction on this session. Return a bounded evidence report with user corrections, failure traces, verified steps, surviving artifacts, and unread boundaries. Do not modify files.
 ```
 
-### End-to-end implementation
+### Skill-only
 
 ```text
-Use reference-led-product-website-handoff for the reference URL and product repository. Verify the release and license facts, prepare the handoff, implement the static site in a new output directory, sanitize the media, run browser and accessibility QA, and stop before public deployment.
+Use chat-session-skill-extraction on the verified evidence report. Check for duplicate Skills, propose a portable package, wait for approval, then create and validate it.
 ```
 
-### Existing draft repair
+### Product-only
 
 ```text
-Use reference-led-product-website-handoff to audit my existing website draft against the product source and release artifact. Identify unsupported claims, stale versions, broken asset paths, copied reference content, privacy risks, and launch blockers. Preserve existing work and propose fixes before editing.
+Use reference-led-product-website-handoff with the product repository and reference URL. Verify release and license facts, prepare the handoff and media plan, implement only after approval, and stop before public deployment.
 ```
 
-## 3. Understand the stages
+### Full pipeline
 
-### Evidence and claim control
+```text
+Use evidence-driven-session-to-deliverable on this conversation. Extract evidence, propose reusable Skills, combine them with the existing website-handoff Skill, validate every layer, and stop before publishing unless I approve the destination.
+```
 
-The Skill separates:
+## 4. Understand the pipeline
 
-- `verified`: directly supported by authoritative evidence.
-- `bounded`: supported only with a stated qualifier.
-- `prohibited`: contradicted by evidence, license, rights, or owner instruction.
-- `unresolved`: insufficient evidence; omit or escalate.
+1. **Intake and scope** — classify the request and record approval boundaries.
+2. **Dependency preflight** — verify required component Skills and artifact state.
+3. **Evidence extraction** — separate observed facts from summaries and unread material.
+4. **Component planning** — check duplicates and propose focused Skills.
+5. **Approval gate** — wait before writes, installation, publication, or deployment.
+6. **Build or update** — preserve valid existing rules and avoid duplication.
+7. **Validation** — check scripts, references, privacy, portability, and generated output.
+8. **Product application** — implement only the authorized deliverable.
+9. **Report** — distinguish verified, failed, blocked, and unverified gates.
 
-Use the claim ledger before writing public copy. One row should represent one independently checkable statement.
+## 5. Approval boundaries
 
-### Reference inspection
+The suite defaults to planning before implementation. Obtain separate approval before:
 
-Record tool, mode, viewport, date, and evidence ID. Keep desktop runtime, passive DOM/CSS, accessibility, network, and mobile evidence separate. If capture fails, retain the failure and use lower-level evidence without pretending a screenshot exists.
-
-Borrow abstract patterns only. Reimplement hierarchy, pacing, tabs, disclosures, dialogs, and motion with original product content and brand assets.
-
-### Product direction
-
-Define the product metaphor, audience problem, message hierarchy, section order, palette, typography, imagery, and motion from the product itself. Map every section to evidence and a visitor question.
-
-### Handoff production
-
-Use the bundled templates for:
-
-- Claim ledger.
-- Release fact record.
-- Reference evidence log.
-- Asset manifest.
-- Capture plan.
-- Section-to-evidence map.
-- Handoff folder checklist.
-- QA evidence record.
-- Launch sign-off.
-
-Copy only the sections the task needs. Blank fields are not approval.
-
-### Implementation and verification
-
-Keep release facts in one authoritative data source. Preserve semantic HTML, keyboard behavior, focus management, reduced-motion support, and version-honest captions.
-
-Test generated output rather than source alone. Include assets, links, download identity, browser console/network, responsive layouts, accessibility, metadata, canonical URLs, structured data, sitemap, robots, and deployment smoke checks.
-
-## 4. Approval boundaries
-
-The Skill defaults to planning before implementation and requires separate approval before public deployment. If the user explicitly authorizes end-to-end execution, continue through implementation and verification within that scope.
-
-Stop and ask before:
-
-- Expanding the requested scope.
-- Changing hosting or public configuration.
+- Creating, updating, renaming, or deleting Skills.
+- Installing into a new harness or location.
+- Publishing a repository or package.
+- Deploying a website or changing public configuration.
 - Adding analytics, forms, accounts, payments, or third-party embeds.
-- Publishing legal or privacy text.
-- Deploying or sending externally visible content.
 
-## 5. Interpreting results
+An approval for one stage does not automatically authorize later externally visible stages.
 
-Use the same status vocabulary in reports and templates:
+## 6. Portable harness behavior
 
-- `verified`: observed evidence supports the result.
-- `failed`: a check reproduced a failure.
-- `blocked`: progress requires an owner decision or missing input.
-- `unverified`: the check was not run or evidence is unavailable.
+The Skills use capability detection rather than hardcoded tool paths. They describe preferred sources and fallbacks for Qoder, Claude Code, Codex, OpenCode, and other agents.
 
-Do not convert a successful build into a claim of accessibility, security, legal readiness, or production readiness.
+Only Qoder has been load-tested in the current validation record. Treat other harnesses as `unverified` until they are actually exercised.
 
-## 6. Common failure modes
+## 7. Status vocabulary
 
-- Using a stale package version as the shipped-release authority.
-- Reusing an old screenshot under a new version label.
-- Treating a reference site as evidence of product capability.
-- Copying reference copy, artwork, badges, pricing, or source code.
-- Publishing internal documents only to make links resolve.
-- Scanning thumbnails instead of full-resolution images and video frames.
-- Testing only development mode instead of generated output.
-- Reporting completion while browser, legal, privacy, or deployment gates remain unresolved.
+| Status | Meaning |
+|---|---|
+| `verified` | Directly supported by observed evidence |
+| `bounded` | Supported only within a stated scope |
+| `prohibited` | Excluded by evidence, rights, or owner instruction |
+| `unresolved` | Missing, conflicting, or unread evidence |
+| `failed` | Reproduced validation or execution failure |
+| `blocked` | Requires user input or external state |
+| `unverified` | Not tested or evidence unavailable |
+| `superseded` | Replaced by later evidence |
 
-## 7. Customize safely
+## 8. Common failure modes
 
-Add project-specific rules only when they are durable and evidence-backed. Keep the Skill generic; put product facts, release records, and owner decisions in the handoff output rather than hardcoding them into the Skill.
+- Treating an assistant summary as proof without checking tool output.
+- Reconstructing session turns that were not returned.
+- Copying reference-site claims, brand assets, or source code.
+- Relabeling older screenshots as a newer release.
+- Publishing internal documents merely to remove broken links.
+- Assuming a successful build proves accessibility, legality, or launch readiness.
+- Forgetting to compare installed, staged, and remote artifacts after publication.
 
-After changes, run the package validator and repeat the manual privacy review described in [validation.md](validation.md).
+## 9. Customize safely
+
+Keep product-specific facts and owner decisions in handoff outputs, not in the reusable Skills. Add resources only when they solve a concrete repeated problem. Revalidate the complete suite after changes.
